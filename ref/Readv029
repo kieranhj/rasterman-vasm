@@ -1,0 +1,32 @@
+
+RasterMan v0.29 (13-Jan-22)
+
+Timing for the 4xVIDC writes optimised to fall during HSync on ARM2/250/3
+real hardware (tweaked VSync return time). 
+Added 16uS delay before reading keyboard Rx IOC reg (as per RISC OS source),
+and this seems to have finally solved keyboard lockup on faster hardware!
+Added sound DMA buffer re-sync code in SWI install, to force MEMC to swap 
+DMA buffer immediately after VSync. Now the DMA buffer swap is sync'd to
+VSync, this avoids the occasional DMA buffer underflow on slower hardware.
+
+
+RasterMan v0.28 (8-Jan-22)
+
+Limited to 4 VIDC writes per scanline.
+Added SWI RasterMan_Configure to ensure future compatibilty.
+ -> Once you have entered your chosen screen mode, issue SWI
+RasterMan_Configure, with R0=4 (4 VIDC writes per scanline), R1=0 (0 MEMC
+writes per scanline), R2=-1 (read number of scanline interrupts per screen),
+R3=-1 (read number of lines from VSync to top of screen) and R4=-1 (read
+number of lines from one scanline interrupt to the next). Then you can issue
+RasterMan_Install, when you're ready.
+
+
+RasterMan v0.27 (8-Jan-22)
+
+To read mouse, use SWI OS_Mouse to read X and Y position, but this will not
+read the mouse buttons. You need to use RasterMan_ScanKeyboard to read mouse
+buttons (code &70, &71 and &72).
+
+Enjoy :)
+SH
