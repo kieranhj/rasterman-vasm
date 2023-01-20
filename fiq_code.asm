@@ -15,7 +15,7 @@ FIQ_startofcode:
    ; R8_FIQ=temp reg 1
    ; R9_FIQ=table 1
    ; R10_FIQ=table 2
-   ; R11_FIQ=table 3 0x table 4
+   ; R11_FIQ=table 3 & table 4
    ; R12_FIQ=memc table
    ; R13_FIQ=line count
    ; R14_FIQ=temp reg 2/set to IOC addr on exit
@@ -79,6 +79,8 @@ FIQ_exitcode:
    .long      0                      ;44 0xC4 n/r
    .long      0                      ;45 0xC8 n/r
    .long      0                      ;46 0xCC n/r
+
+    ; FIQ_tempstack:
 
    .long      0                      ;47 0xD0 R4 ***quad aligned***
    .long      0                      ;48 0xD4 R5
