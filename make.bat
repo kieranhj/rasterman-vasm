@@ -25,5 +25,5 @@ if %ERRORLEVEL% neq 0 (
 )
 
 echo Copying files...
-set HOSTFS=..\arculator\hostfs
+set HOSTFS=..\arculator\hostfs\Builds
 copy "build\rasterman.bin" "%HOSTFS%\RMv030,ffa"

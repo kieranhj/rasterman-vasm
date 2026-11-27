@@ -19,7 +19,7 @@ assembler. A port of a library/module.
 
 ## Build and run
 - `make`: runs `make.bat` (works, 2026-11-22): deletes `build\*`, assembles `build\fiq_code.bin` and
-  `build\rasterman.bin`, copies it to `..\arculator\hostfs\RMv030,ffa` (D:\archie\mine\arculator\hostfs).
+  `build\rasterman.bin`, copies it to `..\arculator\hostfs\Builds\RMv030,ffa` (D:\archie\mine\arculator\hostfs\Builds).
 - Tools: bundled `bin\vasmarm_std_win32.exe`.
 - Load it in Arculator as a relocatable module (`RMv030`, filetype &FFA).
 
